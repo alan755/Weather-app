@@ -3,7 +3,6 @@ const request = require('request')
 var geocodeaddr = (address, callback) => {
 
 var encodedaddr = encodeURIComponent(address)
-console.log(encodedaddr)
 
 request({
   url: 'https://maps.googleapis.com/maps/api/geocode/json?address=india' + encodedaddr,
@@ -16,7 +15,7 @@ request({
   } else if(body.status === 'OK') {
     callback(undefined,{
       address: body.results[0].formatted_address,
-      lattitude: body.results[0].geometry.location.lat,
+      latitude: body.results[0].geometry.location.lat,
       longitude: body.results[0].geometry.location.lng
     })
 
